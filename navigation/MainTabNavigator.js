@@ -4,8 +4,9 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import ActivitiesScreen from '../screens/ActivitiesScreen';
+import TrombiScreen from '../screens/TrombiScreen'
+import TrombiTabNavigator from './TrombiTabNavigator';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -25,12 +26,12 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const ActivitiesStack = createStackNavigator({
+  Activities: ActivitiesScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+ActivitiesStack.navigationOptions = {
+  tabBarLabel: 'Activities',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -39,37 +40,33 @@ LinksStack.navigationOptions = {
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const TrombiStack = createStackNavigator({
+  Settings: TrombiTabNavigator,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+TrombiStack.navigationOptions = {
+  tabBarLabel: 'Trombi',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
-    />
-  ),
-};
-
-const TestStack = createStackNavigator({
-  Settings: SettingsScreen,
-});
-
-TestStack.navigationOptions = {
-  tabBarLabel: 'Test',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
     />
   ),
 };
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
-  TestStack,
+  TrombiStack,
+  ActivitiesStack,
+}, {
+  tabBarOptions: {
+    activeTintColor: '#05CC98',
+    inactiveTintColor: 'gray',
+    style: {
+      backgroundColor: '#fff',
+    },
+    indicatorStyle: {
+      backgroundColor: '#05CC98',
+    },
+  },
 });

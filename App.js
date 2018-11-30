@@ -18,11 +18,11 @@ export default class App extends React.Component {
         />
       );
     } else {
-      return (
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <AppNavigator />
-        </View>
+      return ( 
+          <View style={styles.container}>
+            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+            <AppNavigator />
+          </View>
       );
     }
   }
@@ -55,6 +55,10 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  statusBar: {
+    backgroundColor: "#C2185B",
+    height: 100,
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
