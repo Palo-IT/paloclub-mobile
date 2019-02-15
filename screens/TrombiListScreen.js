@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, FlatList, Text } from 'react-native';
+import UserList from '../components/UserList'
 
 export default class TrombiListScreen extends React.Component {
 
@@ -10,19 +11,9 @@ export default class TrombiListScreen extends React.Component {
   render() {
     return (
     <View style={styles.container}>
-      <FlatList
-        data={[
-          {key: 'Devin'},
-          {key: 'Jackson'},
-          {key: 'James'},
-          {key: 'Joel'},
-          {key: 'John'},
-          {key: 'Jillian'},
-          {key: 'Jimmy'},
-          {key: 'Julie'},
-        ]}
-        renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
-      />
+       <View style={styles.container}>
+        <UserList data={sampleData} />
+      </View>
     </View>
     );
   }
@@ -40,3 +31,28 @@ const styles = StyleSheet.create({
    },
 });
 
+
+const sampleData = [
+  {
+    name: { title: 'mr', first: 'Kevin', last: 'Seysen' },
+    email: 'kseysen@epalo-it.com',
+    picture: {
+      thumbnail: 'https://randomuser.me/api/portraits/thumb/men/62.jpg',
+    },
+  },
+  {
+    name: { title: 'mrs', first: 'asuncion', last: 'gomez' },
+    email: 'asuncion.gomez@example.com',
+    picture: {
+      thumbnail: 'https://randomuser.me/api/portraits/thumb/women/52.jpg',
+    },
+    nat: 'ES',
+  },
+  {
+    name: { title: 'miss', first: 'gilcenira', last: 'ribeiro' },
+    email: 'gilcenira.ribeiro@example.com',
+    picture: {
+      thumbnail: 'https://randomuser.me/api/portraits/thumb/women/21.jpg',
+    },
+  },
+]

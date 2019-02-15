@@ -40,6 +40,20 @@ ActivitiesStack.navigationOptions = {
   ),
 };
 
+const ProfilStack = createStackNavigator({
+  Profil: ActivitiesScreen,
+});
+
+ProfilStack.navigationOptions = {
+  tabBarLabel: 'Profil',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+    />
+  ),
+};
+
 const TrombiStack = createStackNavigator({
   Settings: TrombiTabNavigator,
 });
@@ -57,6 +71,7 @@ TrombiStack.navigationOptions = {
 export default createBottomTabNavigator({
   HomeStack,
   TrombiStack,
+  ProfilStack,
   ActivitiesStack,
 }, {
   tabBarOptions: {
